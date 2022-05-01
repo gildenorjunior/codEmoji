@@ -27,21 +27,30 @@ html {
 }
 
 .container-global {
-  width: 100%;
+  max-width: 1440px;
   height: 100vh;
 
-  padding-inline: 15%;
+  padding: 0 15%;
+
+  @include breakpoint(large-up) {
+    margin: auto;
+    padding: 0;
+  }
 
   .cabecalho {
     display: flex;
     justify-content: space-between;
-    padding-block: 2rem;
+    padding: 2rem 0;
 
     h3 {
       font-family: "Inter", sans-serif;
       font-size: 2rem;
       font-weight: 700;
       color: $gray;
+
+      @include breakpoint(small-only) {
+        font-size: 1.5rem;
+      }
     }
 
     .container-pesquisa {
@@ -56,6 +65,10 @@ html {
         border-radius: 100%;
 
         cursor: pointer;
+
+        @include breakpoint(small-only) {
+          display: none;
+        }
 
         img {
           max-width: 1.5rem;
@@ -76,6 +89,10 @@ html {
 
         cursor: pointer;
 
+        @include breakpoint(small-only) {
+          padding: 0.5rem 1rem;
+        }
+
         a {
           font-family: "Inter", sans-serif;
           font-size: 1rem;
@@ -83,6 +100,10 @@ html {
           text-decoration: none;
           text-transform: uppercase;
           color: #2f2f2f;
+
+          @include breakpoint(small-only) {
+            font-size: 0.9rem;
+          }
         }
 
         &:hover {
@@ -95,10 +116,11 @@ html {
 
   main {
     height: 100%;
+    max-width: 1440px;
 
     .secao-principal {
       height: 100%;
-      width: 100%;
+      max-width: 1440px;
 
       display: flex;
       flex-direction: column;
@@ -107,6 +129,16 @@ html {
       gap: 3.1rem;
 
       position: relative;
+
+      @include breakpoint(large-up) {
+        height: 80%;
+      }
+
+      @include breakpoint(medium-only) {
+        div[class*="img-emoji"] {
+          visibility: hidden;
+        }
+      }
 
       .img-emoji-1 {
         position: absolute;
@@ -120,6 +152,11 @@ html {
           #2dc7ed 3.14%,
           rgba(45, 199, 237, 0) 100%
         );
+
+        @include breakpoint(large-up) {
+          top: 1rem;
+          left: 8rem;
+        }
 
         .img-1 {
           max-width: 9.3rem;
@@ -141,6 +178,11 @@ html {
           rgba(242, 201, 76, 0) 100%
         );
 
+        @include breakpoint(large-up) {
+          top: 0rem;
+          left: 60rem;
+        }
+
         .img-2 {
           max-width: 8.1rem;
           max-height: 8.1rem;
@@ -159,6 +201,11 @@ html {
           #ef7c89 3.14%,
           rgba(239, 124, 137, 0) 100%
         );
+
+        @include breakpoint(large-up) {
+          top: 20rem;
+          left: 5rem;
+        }
 
         .img-3 {
           max-width: 9.3rem;
@@ -179,6 +226,11 @@ html {
           rgba(114, 72, 236, 0) 100%
         );
 
+        @include breakpoint(large-up) {
+          top: 31rem;
+          left: 45rem;
+        }
+
         .img-4 {
           max-width: 8.1rem;
           max-height: 8.1rem;
@@ -196,6 +248,11 @@ html {
           #00e861 0%,
           rgba(0, 232, 97, 0) 100%
         );
+
+        @include breakpoint(large-up) {
+          top: 23rem;
+          left: 65rem;
+        }
 
         .img-5 {
           max-width: 8.1rem;
@@ -218,11 +275,31 @@ html {
         line-height: 4.3rem;
         text-align: center;
         color: $gray;
+
+        @include breakpoint(small-only) {
+          font-size: 2.5rem;
+          line-height: 3.3rem;
+        }
+
+        @include breakpoint(small-up) {
+          margin-top: 40px;
+        }
       }
 
       .container-botoes {
+        @include breakpoint(small-only) {
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+          width: 100%;
+        }
+
+        @include breakpoint(small-up) {
+          margin-top: 40px;
+        }
+
         .btn {
-          margin-inline: 20px;
+          margin: 0 20px;
           padding: 15px 40px;
           border-radius: 10px;
           text-transform: uppercase;
@@ -231,6 +308,11 @@ html {
           font-weight: 600;
 
           cursor: pointer;
+
+          @include breakpoint(small-only) {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+          }
         }
 
         .btn-primario {
@@ -261,18 +343,29 @@ html {
     }
 
     .secao-depoimentos {
-      height: 28%;
-      margin-block: 1.8rem;
+      height: 32%;
+      margin: 1.8rem 0;
       background-color: white;
 
       display: flex;
       gap: 6.2rem;
 
+      @include breakpoint(large-up) {
+        height: 50%;
+      }
+
+      @include breakpoint(small-only) {
+        display: flex;
+        flex-direction: column;
+
+        height: auto;
+      }
+
       .container-depoimento {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-inline: 3.1rem;
+        margin: 0 3.1rem;
 
         .autor-depoimento {
           font-family: "Sen", sans-serif;
@@ -292,7 +385,7 @@ html {
           line-height: 1.6rem;
           font-style: italic;
           color: $gray;
-          margin-block: 1.2rem;
+          margin: 1.2rem 0;
         }
       }
     }
